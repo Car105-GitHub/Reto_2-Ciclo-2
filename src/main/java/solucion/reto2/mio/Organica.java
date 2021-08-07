@@ -42,7 +42,7 @@ public class Organica extends Fruta{
     //Métodos
     public double calcularPrecio(){
         double precioVenta = super.calcularPrecio();      
-        double precioOrganica = precioVenta + (precioVenta * this.subsidio);//Recargo para subsidiar productor
+        double precioOrganica = precioVenta + (precioVenta * this.subsidio);
 
         if( !super.importada &&
             super.gramosVenta >= Organica.GRAMAJE_MINIMO_DESCUENTO_NACIONAL){
@@ -52,4 +52,5 @@ public class Organica extends Fruta{
 
         return precioOrganica;
     } 
+
 }

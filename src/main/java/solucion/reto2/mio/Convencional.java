@@ -1,19 +1,50 @@
+package solucion.reto2.mio;
+
+public class Convencional extends Fruta { 
+
+    //Atributos
+    private static final double RECARGO_CONVENCIONALES_BASE = 0.08;
+    private double recargoConvencionales;
+    private int gradoAditamentos = 1;
 
 
-public class Convencional extends Fruta { //Atributos
     //Constructores
     public Convencional(String pNombre, double pPrecio){
+        super(pNombre, pPrecio);
+        this.recargoConvencionales = Convencional.RECARGO_CONVENCIONALES_BASE;
     }
+
     public Convencional(String pNombre, double pPrecio, double pRecargo){
+        this(pNombre, pPrecio);        
+        this.recargoConvencionales = pRecargo;
     }
-    public Convencional(String pNombre, double pPrecio, double pRecargo, int
-    pGradoAditamentos){ }
+
+    public Convencional(String pNombre, double pPrecio, double pRecargo, int pGradoAditamentos){ 
+        this(pNombre, pPrecio, pRecargo);        
+        this.gradoAditamentos = pGradoAditamentos;
+    }
+
     public Convencional(String pNombre, double pPrecio, double pRecargo, int pGradoAditamentos, int pGramosVenta, boolean pImportada){
+        this(pNombre, pPrecio, pRecargo, pGradoAditamentos);        
+        super.gramosVenta = pGramosVenta;
+        super.importada = pImportada;
     }
+
     public Convencional(String pNombre, double pPrecio, int pGramosVenta, boolean pImportada){
+        this(pNombre, pPrecio);        
+        super.gramosVenta = pGramosVenta;
+        super.importada = pImportada;
     }
+
     //Métodos
-    public double calcularPrecio(){ }
+
+    public double calcularPrecio(){
+        double precioVenta = super.calcularPrecio();
+        double precioConvencional = precioVenta + (precioVenta*this.recargoConvencionales);
+        precioConvencional += precioVenta * (0.01 * this.gradoAditamentos);
+        
+        return precioConvencional;
+     }
     }
-    //Fin de la solución
+
      

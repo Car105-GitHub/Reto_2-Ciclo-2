@@ -46,5 +46,13 @@ public class Fruta {
         return precioVenta;
 
     }
-    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getPrecioBase() {
+        return precioBase;
+    }
+
     }
