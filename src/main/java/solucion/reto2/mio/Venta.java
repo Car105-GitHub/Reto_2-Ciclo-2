@@ -49,14 +49,15 @@ public class Venta {
 
         }
 
-        System.out.println("Valor frutas cultivo convencional = " + this.totalFrutasConvencionales);
-        System.out.println("Valor frutas cultivo orgánico = " + this.totalFrutasOrganicas);
-
         double totalCompra = this.totalFrutas + this.totalFrutasConvencionales + this.totalFrutasOrganicas;
 
-        if( numOrganicas > numConvencionales &&
-            this.frutaObsequio != -1
-        ){
+        System.out.println("Valor frutas cultivo convencional = " + Math.round(this.totalFrutasConvencionales * 10.0) / 10.0);
+        System.out.println("Valor frutas cultivo orgánico = " + this.totalFrutasOrganicas);
+
+     //   double totalCompra = this.totalFrutas + this.totalFrutasConvencionales + this.totalFrutasOrganicas;
+
+        if( numOrganicas > numConvencionales && this.frutaObsequio != -1)
+        {
             
             double descuento = this.listaFrutas.get(this.frutaObsequio).calcularPrecio() * 0.5; 
             totalCompra -= descuento;
